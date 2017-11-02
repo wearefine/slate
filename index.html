@@ -310,11 +310,11 @@
 <li><code>demo/</code> dummy test page for local development</li>
 <li><code>test/</code> test suites</li>
 </ul>
-<h3 id='tasks'>Tasks</h3><h4 id='run-the-demo-page-to-preview-changes-locally'>Run the demo page to preview changes locally</h4>
+<h3 id='tasks'>Tasks</h3><h3 id='run-the-demo-page-to-preview-changes-locally'>Run the demo page to preview changes locally</h3>
 <p><code>$ gulp</code> will run browser-sync and live-reload when changes to <em>build</em> code are made. Visit <a href="http://localhost:9000">localhost:9000</a>. Note: this will <em>not</em> live-reload changes to pre-compiled src/ code (see next task).</p>
-<h4 id='build-javascript'>Build javascript</h4>
+<h3 id='build-javascript'>Build javascript</h3>
 <p><code>$ gulp compress-js</code> will &quot;uglify()&quot; the source JS and copy to the build/ directory (this is what gets deployed to AWS)</p>
-<h4 id='run-test-suite'>Run test suite</h4>
+<h3 id='run-test-suite'>Run test suite</h3>
 <p><code>$ gulp test</code> runs the test suite in test/test.js. We&#39;re using the Jasmine library for the specs and Karma for the test runner framework.</p>
 <h3 id='resources'>Resources</h3>
 <ul>
@@ -347,7 +347,8 @@
 <p>In every request to the API include you access token as an Authorization header. Here are a couple of examples with an access_token of <code>12345</code>:</p>
 
 <p><strong>cURL</strong></p>
-<pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/retailers?location=97217" -H 'Authorization: Token token="12345"'
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/retailers?location=97217"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
 </code></pre>
 <p><strong>Ruby REST Client</strong></p>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest_client'</span>
@@ -414,8 +415,13 @@ http vs https
 <td>&quot;true&quot; or &quot;false&quot;, show only retailers that do or don&#39;t serve on premise, leave blank to show all</td>
 </tr>
 </tbody></table>
-<h4 id='response'>Response</h4><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/retailers?location=97217&amp;page=2" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h4 id='response'>Response</h4><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/retailers?location=97217&amp;page=2"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"total_results"</span><span class="p">:</span><span class="w"> </span><span class="mi">1491</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">299</span><span class="p">,</span><span class="w">
   </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
@@ -486,8 +492,13 @@ http vs https
 <td>Number of results returned per page</td>
 </tr>
 </tbody></table>
-<h3 id='response-2'>Response</h3><pre class="highlight plaintext"><code>curl "http://admin2.smwe.com/v1/CSM/distributors?country=CA" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='response-2'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://admin2.smwe.com/v1/CSM/distributors?country=CA"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"total_results"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -515,8 +526,13 @@ http vs https
 </span></code></pre><h2 id='products'>Products</h2><h3 id='get-v1-brand-products'>GET /v1/:brand/products</h3>
 <p>Returns a list of products with retailers for a brand.
 &quot;:brand&quot; is the three digit brand code.</p>
-<h3 id='response-3'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/products" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<h3 id='response-3'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/products"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSMT1MR1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
@@ -534,8 +550,13 @@ http vs https
 </span></code></pre><h2 id='countries'>Countries</h2><h3 id='get-v1-brand-countries'>GET /v1/:brand/countries</h3>
 <p>Returns a list of countries with distributors for a brand.
 &quot;:brand&quot; is the three digit brand code.</p>
-<h3 id='response-4'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/countries" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<h3 id='response-4'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/countries"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AW"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABW"</span><span class="p">,</span><span class="w">
@@ -608,8 +629,13 @@ http vs https
 <td>Number of results returned per page, if pagination true</td>
 </tr>
 </tbody></table>
-<h3 id='response-5'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/events" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<h3 id='response-5'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/events"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2155</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w">
@@ -667,8 +693,13 @@ http vs https
 </span></code></pre><h2 id='events-detail'>Events Detail</h2><h3 id='get-v1-brand-events-2155'>GET /v1/:brand/events/2155</h3>
 <p>Returns an active event.
 &quot;:brand&quot; is the three digit brand code.</p>
-<h3 id='response-6'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/events/2155" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='response-6'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/events/2155"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1980</span><span class="p">,</span><span class="w">
   </span><span class="s2">"seo_pagetitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Murder Mystery Dinner Event | Chateau Ste. Michelle"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"seo_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cstrong</span><span class="se">\u</span><span class="s2">003eTickets will go on sale September 28th!</span><span class="se">\u</span><span class="s2">003c/strong</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cCome join us for a night back in the Roaring 20’s spiked with Murder, Mystery and Mayhem at Chateau Ste. Michelle. </span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
@@ -699,8 +730,13 @@ http vs https
 </span></code></pre><h2 id='event-types'>Event Types</h2><h3 id='get-v1-brand-event_types'>GET /v1/:brand/event_types</h3>
 <p>Returns rank ordered active event types with associated wines, for use on events list endpoint filtering.
 &quot;:brand&quot; is the three digit brand code.</p>
-<h3 id='response-7'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/event_types" -H 'Authorization: Token token="12345"'
-</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<h3 id='response-7'>Response</h3><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://api.smwe.com/v1/CSM/event_types"</span>
+     -H <span class="s1">'Authorization: Token token="12345"'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winery Event"</span><span class="w">
@@ -750,8 +786,12 @@ http vs https
 </tbody></table>
 
       </div>
-      <div class="dark-box">
+      <!-- <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name=""></a>
+                <a href="#" data-language-name=""></a>
+          </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
