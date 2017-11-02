@@ -103,6 +103,8 @@ html, body {
   }
 
   .logo {
+    margin: 0 auto;
+    margin-top: $logo-margin;
     margin-bottom: $logo-margin;
   }
 
