@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>SMWE Documentation Portal</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,12 +210,6 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -225,19 +219,42 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#one-click-age-gate" class="toc-h1 toc-link" data-title="One-Click Age Gate">One-Click Age Gate</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#development" class="toc-h2 toc-link" data-title="Development">Development</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api" class="toc-h1 toc-link" data-title="API">API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-2" class="toc-h2 toc-link" data-title="API">API</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#retailers" class="toc-h2 toc-link" data-title="Retailers">Retailers</a>
+                  </li>
+                  <li>
+                    <a href="#distributors" class="toc-h2 toc-link" data-title="Distributors">Distributors</a>
+                  </li>
+                  <li>
+                    <a href="#products" class="toc-h2 toc-link" data-title="Products">Products</a>
+                  </li>
+                  <li>
+                    <a href="#countries" class="toc-h2 toc-link" data-title="Countries">Countries</a>
+                  </li>
+                  <li>
+                    <a href="#events-list" class="toc-h2 toc-link" data-title="Events List">Events List</a>
+                  </li>
+                  <li>
+                    <a href="#events-detail" class="toc-h2 toc-link" data-title="Events Detail">Events Detail</a>
+                  </li>
+                  <li>
+                    <a href="#event-types" class="toc-h2 toc-link" data-title="Event Types">Event Types</a>
                   </li>
               </ul>
           </li>
@@ -254,188 +271,455 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the SMWE Documentation Portal.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<p>Maecenas efficitur pretium dui id elementum. Nunc sit amet semper nunc. Donec justo velit, lacinia a fringilla quis, tempus et magna. Mauris id aliquet leo, ac tempus urna. Nam quis placerat mi. Phasellus eu ornare odio, sed interdum erat. Donec ac venenatis urna, ut vestibulum orci. Donec suscipit, purus id dapibus volutpat, nunc tortor sollicitudin massa, eget consequat arcu lorem in erat. Vestibulum non lorem ex. In vestibulum metus tempor cursus dapibus.</p>
+<h1 id='one-click-age-gate'>One-Click Age Gate</h1><h2 id='usage'>Usage</h2>
+<ol>
+<li>Load the script in the footer of the page, before the closing <code>&lt;/body&gt;</code></li>
+</ol>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://assets.wine/global/age-gate/v1/age-gate.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<ol>
+<li>After the script tag, initialize it, passing in options to customize appearance.</li>
+</ol>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nx">AGE_GATE</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="s1">'logoSrc'</span> <span class="p">:</span> <span class="s1">'/img/logo.jpg'</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre><h3 id='options'>Options</h3>
+<ul>
+<li>overlayColor : (string) the color (and opacity) of the overlay. Default = <code>&#39;rgba(0,0,0,.8)&#39;</code></li>
+<li>modalBackgroundColor : (string) the background color of the modal box. Default = <code>&#39;#FFF&#39;</code></li>
+<li>modalForegroundColor : (string) the text and button color within the modal. Default = <code>&#39;#000&#39;</code></li>
+<li>textSize : (string) the base text size of the modal. All text sizes are relative to this. Default = <code>&#39;16px&#39;</code></li>
+<li>logoSrc : (string) path to the logo image that should appear at the top of the modal. Default = <code>&#39;&#39;</code> (nothing)</li>
+<li>takeoverThreshold : (int) pixel width of the viewport, below which the modal converts to takeover. Default = <code>600</code></li>
+</ul>
+<h2 id='development'>Development</h2><h3 id='local-setup'>Local setup</h3>
+<ol>
+<li>Clone the repository... you probably already did that if you&#39;re reading this.</li>
+<li><a href="https://nodejs.org/en/download/">Insall node</a> if you haven&#39;t already </li>
+<li><code>npm install</code> This takes a seoncond the first time b/c it&#39;s downloading some libraries</li>
+</ol>
+<h3 id='files'>Files</h3>
+<ul>
+<li><code>build/</code> contains the compiled, production versions of files</li>
+<li><code>src/</code> pre-compiled source files</li>
+<li><code>demo/</code> dummy test page for local development</li>
+<li><code>test/</code> test suites</li>
+</ul>
+<h3 id='tasks'>Tasks</h3><h4 id='run-the-demo-page-to-preview-changes-locally'>Run the demo page to preview changes locally</h4>
+<p><code>$ gulp</code> will run browser-sync and live-reload when changes to <em>build</em> code are made. Visit <a href="http://localhost:9000">localhost:9000</a>. Note: this will <em>not</em> live-reload changes to pre-compiled src/ code (see next task).</p>
+<h4 id='build-javascript'>Build javascript</h4>
+<p><code>$ gulp compress-js</code> will &quot;uglify()&quot; the source JS and copy to the build/ directory (this is what gets deployed to AWS)</p>
+<h4 id='run-test-suite'>Run test suite</h4>
+<p><code>$ gulp test</code> runs the test suite in test/test.js. We&#39;re using the Jasmine library for the specs and Karma for the test runner framework.</p>
+<h3 id='resources'>Resources</h3>
+<ul>
+<li><a href="http://gulpjs.com/">Gulp</a></li>
+<li><a href="https://nodejs.org/en/">Node</a></li>
+<li><a href="https://browsersync.io/">browser-sync</a> / <a href="https://www.browsersync.io/docs/gulp">gulp-browser-sync</a></li>
+<li><a href="https://jasmine.github.io/2.0/introduction.html">Jasmine</a> / <a href="https://karma-runner.github.io/1.0/index.html">Karam</a></li>
+</ul>
+<h1 id='api'>API</h1>
+<p>Rails 5 API App to access SMWE&#39;s data, includes a RESTful API to expose certain data from the DB to the public.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<table><thead>
+<tr>
+<th>Rails Version</th>
+<th>Ruby Version</th>
+<th>Run Tests</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5.1.4</td>
+<td>2.4.2</td>
+<td>Guard</td>
+</tr>
+</tbody></table>
+<h2 id='api-2'>API</h2>
+<p>This application includes a RESTful API to expose certain data from the DB to the public.</p>
+<h3 id='access-token'>Access Token</h3>
+<p>To access any aspect of the API you&#39;ll need an access token. Contact FINE if you don&#39;t have one.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>In every request to the API include you access token as an Authorization header. Here are a couple of examples with an access_token of <code>12345</code>:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
-
+<p><strong>cURL</strong></p>
+<pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/retailers?location=97217" -H 'Authorization: Token token="12345"'
+</code></pre>
+<p><strong>Ruby REST Client</strong></p>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest_client'</span>
+<span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'http://api.smwe.com/v1/CSM/retailers'</span><span class="p">,</span>
+  <span class="ss">location: </span><span class="s1">'97217'</span><span class="p">,</span>
+  <span class="ss">authorization: </span><span class="s1">'Token token="12345"'</span>
+</code></pre>
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+http vs https
+<p>If the application connecting to the API will be hosted on the SMWE servers use `http` as connections will be made via internal IPs. Otherwise use `https`.</p>
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<h2 id='retailers'>Retailers</h2><h3 id='get-v1-brand-retailers'>GET /v1/:brand/retailers</h3>
+<p>Returns a list of retailers for a brand and location, ordered by distance.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>param</th>
+<th>required?</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>location</td>
+<td>yes</td>
+<td></td>
+<td>A zip, address, city or landmark</td>
+</tr>
+<tr>
+<td>product</td>
+<td></td>
+<td></td>
+<td>The 7-9 digit alphanumeric product key, filters retailers to only those with product</td>
+</tr>
+<tr>
+<td>radius</td>
+<td></td>
+<td>50</td>
+<td>The area to search for retailers in miles</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td></td>
+<td>true</td>
+<td>Paginates results</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>1</td>
+<td>Page number to return</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td></td>
+<td>5</td>
+<td>Number of results returned per page</td>
+</tr>
+<tr>
+<td>on_premise</td>
+<td></td>
+<td></td>
+<td>&quot;true&quot; or &quot;false&quot;, show only retailers that do or don&#39;t serve on premise, leave blank to show all</td>
+</tr>
+</tbody></table>
+<h4 id='response'>Response</h4><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/retailers?location=97217&amp;page=2" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_results"</span><span class="p">:</span><span class="w"> </span><span class="mi">1491</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">299</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retailers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126353</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Walgreens"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2829 N Lombard St"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portland"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97217"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lon"</span><span class="p">:</span><span class="w"> </span><span class="mf">-122.697</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.5772</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"on_premise"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.56</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSMT1CB1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"product_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CB1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbia Valley Cabernet Sauvignon"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSMT1RI1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"product_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RI1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbia Valley Riesling"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">retailers</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='distributors'>Distributors</h2><h3 id='get-v1-brand-distributors'>GET /v1/:brand/distributors</h3>
+<p>Returns a list of distributors for a brand and country, ordered by state and city.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>param</th>
+<th>required?</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>country</td>
+<td>yes</td>
+<td></td>
+<td>A two digit country code</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td></td>
+<td>true</td>
+<td>Paginates results</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>1</td>
+<td>Page number to return</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td></td>
+<td>5</td>
+<td>Number of results returned per page</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3><pre class="highlight plaintext"><code>curl "http://admin2.smwe.com/v1/CSM/distributors?country=CA" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_results"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"distributors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"jde_distributor_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">36431</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBERTA LC AUTHENTIC(C/O CONTAINERWORLD)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RICHMOND"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANADA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"printable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numcode"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V6W 0A3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"604-540.2582"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.awsm.ca</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">distributors</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='products'>Products</h2><h3 id='get-v1-brand-products'>GET /v1/:brand/products</h3>
+<p>Returns a list of products with retailers for a brand.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='response-3'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/products" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSMT1MR1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MR1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbia Valley Merlot"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSMT1RI1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CSM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RI1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Columbia Valley Riesling"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='countries'>Countries</h2><h3 id='get-v1-brand-countries'>GET /v1/:brand/countries</h3>
+<p>Returns a list of countries with distributors for a brand.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='response-4'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/countries" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AW"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABW"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARUBA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"printable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aruba"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numcode"</span><span class="p">:</span><span class="w"> </span><span class="mi">533</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AU"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUSTRALIA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"printable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Australia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numcode"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"iso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BHS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAHAMAS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"printable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bahamas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"numcode"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='events-list'>Events List</h2><h3 id='get-v1-brand-events'>GET /v1/:brand/events</h3>
+<p>Returns a list of current events, live on production, scoped by brand, ordered ascending chronologically.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>param</th>
+<th>required?</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>on_development</td>
+<td></td>
+<td>false</td>
+<td>Display non-production data</td>
+</tr>
+<tr>
+<td>show_past</td>
+<td></td>
+<td>false</td>
+<td>Show past events</td>
+</tr>
+<tr>
+<td>event_type</td>
+<td></td>
+<td></td>
+<td>Event Type to return</td>
+</tr>
+<tr>
+<td>pagination</td>
+<td></td>
+<td>false</td>
+<td>Paginates results</td>
+</tr>
+<tr>
+<td>page</td>
+<td></td>
+<td>1</td>
+<td>Page number to return, if pagination true</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td></td>
+<td>5</td>
+<td>Number of results returned per page, if pagination true</td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/events" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2155</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Culinary Event"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Washington Harvest Chef Dinner Italian Style!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"washington-harvest-chef-dinner-italian-style"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"formatted_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sep 30, 2017"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7:00pm"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"introduction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come celebrate Chateau Ste. Michelle’s 50th Anniversary by joining Chef Scott Harberts as he showcases the beautiful fall harvest of Washington State.  "</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/files/brands_cms/FlexibleImage/10876/CSM_HarvestDinner_Sept2017_V2__1_.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2236</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grand Vin Events"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Washington Harvest Chef Dinner Italian Style!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"washington-harvest-chef-dinner-italian-style-gv"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"formatted_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sep 30, 2017"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7:00pm"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"introduction"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/files/brands_cms/FlexibleImage/11181/CSM_HarvestDinner_Sept2017_V2__1_.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2209</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vintage Reserve Club"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heritage Reserve Release Party"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"heritage-reserve-release-party"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-08"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"formatted_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oct 08, 2017"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6:00 - 8:00pm"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"introduction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complimentary for Heritage Members (up to 4 tickets)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/files/brands_cms/FlexibleImage/11087/HERITAGEparty.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='events-detail'>Events Detail</h2><h3 id='get-v1-brand-events-2155'>GET /v1/:brand/events/2155</h3>
+<p>Returns an active event.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='response-6'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/events/2155" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1980</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seo_pagetitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Murder Mystery Dinner Event | Chateau Ste. Michelle"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seo_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cstrong</span><span class="se">\u</span><span class="s2">003eTickets will go on sale September 28th!</span><span class="se">\u</span><span class="s2">003c/strong</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cCome join us for a night back in the Roaring 20’s spiked with Murder, Mystery and Mayhem at Chateau Ste. Michelle. </span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Murder Mystery Dinner Event"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Culinary Event"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-28"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-28"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"formatted_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oct 28, 2017"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6:30pm"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chateau Ste. Michelle Banquet Room"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"introduction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\u</span><span class="s2">003cstrong</span><span class="se">\u</span><span class="s2">003eTickets will go on sale September 28th!</span><span class="se">\u</span><span class="s2">003c/strong</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cCome join us for a night back in the Roaring 20’s spiked with Murder, Mystery and Mayhem at Chateau Ste. Michelle. </span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"video_caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You will be enjoying a wonderful meal paired with delicious award winning wines while solving an unfathomable murder! Whether you are playing a part, watching and laughing, enjoying a savory three course dinner, or working to solve the crime, it will be a fun filled evening! So bring a date or a group of friends and we hope to see you there.</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n</span><span class="s2">There will be several prizes to be given out. Be ready to participate, come in character and dressed to impress in your finest 1920’s attire!</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cu</span><span class="se">\u</span><span class="s2">003eWhat to Expect:</span><span class="se">\u</span><span class="s2">003c/u</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e6:30pm - Guest Arrival, Check in, Enjoy Appetizers, Activities</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e7:00pm - Seated for 3 Course Dinner </span><span class="se">\u</span><span class="s2">0026 Let the Mystery Begin!</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e9:00pm - Murder Solved and Event Concludes</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e9:30pm - Awards</span><span class="se">\r\n\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n\u</span><span class="s2">003cem</span><span class="se">\u</span><span class="s2">003ePerformance by: The Murder Mystery Company</span><span class="se">\u</span><span class="s2">003c/em</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n</span><span class="s2"> </span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\u</span><span class="s2">003cbr</span><span class="se">\u</span><span class="s2">003e</span><span class="se">\r\n</span><span class="s2">21 and over only, please."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price_information"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$95 retail | $85 VRC members"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"purchase_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_purchase"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url_target"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/files/brands_cms/FlexibleImage/10066/CSM_20s_Murder_Mystery_Dinner.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image_caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='event-types'>Event Types</h2><h3 id='get-v1-brand-event_types'>GET /v1/:brand/event_types</h3>
+<p>Returns rank ordered active event types with associated wines, for use on events list endpoint filtering.
+&quot;:brand&quot; is the three digit brand code.</p>
+<h3 id='response-7'>Response</h3><pre class="highlight plaintext"><code>curl "http://api.smwe.com/v1/CSM/event_types" -H 'Authorization: Token token="12345"'
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winery Event"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vintage Reserve Club"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Culinary Event"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Winery Closures </span><span class="se">\u</span><span class="s2">0026 Special Hours"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+</span></code></pre><h1 id='errors'>Errors</h1>
+<p>The SMWE API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -452,32 +736,8 @@ Remember — a happy kitten is an authenticated kitten!
 <td>Unauthorized -- Your API key is wrong.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
 <td>404</td>
 <td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -491,12 +751,6 @@ Remember — a happy kitten is an authenticated kitten!
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
