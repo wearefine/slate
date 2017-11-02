@@ -44,13 +44,13 @@
 
 ### Tasks
 
-#### Run the demo page to preview changes locally
+### Run the demo page to preview changes locally
 `$ gulp` will run browser-sync and live-reload when changes to _build_ code are made. Visit [localhost:9000](http://localhost:9000). Note: this will _not_ live-reload changes to pre-compiled src/ code (see next task).
 
-#### Build javascript
+### Build javascript
 `$ gulp compress-js` will "uglify()" the source JS and copy to the build/ directory (this is what gets deployed to AWS)
 
-#### Run test suite
+### Run test suite
 `$ gulp test` runs the test suite in test/test.js. We're using the Jasmine library for the specs and Karma for the test runner framework.
 
 ### Resources

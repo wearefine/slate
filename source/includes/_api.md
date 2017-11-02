@@ -18,9 +18,11 @@ In every request to the API include you access token as an Authorization header.
 
 **cURL**
 
+```shell
+curl "http://api.smwe.com/v1/CSM/retailers?location=97217"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/retailers?location=97217" -H 'Authorization: Token token="12345"'
-```
+
 
 **Ruby REST Client**
 
@@ -57,9 +59,11 @@ Returns a list of retailers for a brand and location, ordered by distance.
 
 #### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/retailers?location=97217&page=2"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/retailers?location=97217&page=2" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -116,9 +120,11 @@ Returns a list of distributors for a brand and country, ordered by state and cit
 
 ### Response
 
+```shell
+curl "http://admin2.smwe.com/v1/CSM/distributors?country=CA"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://admin2.smwe.com/v1/CSM/distributors?country=CA" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -157,9 +163,11 @@ Returns a list of products with retailers for a brand.
 
 ### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/products"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/products" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 [
@@ -188,9 +196,11 @@ Returns a list of countries with distributors for a brand.
 
 ### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/countries"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/countries" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 [
@@ -240,9 +250,11 @@ Returns a list of current events, live on production, scoped by brand, ordered a
 
 ### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/events"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/events" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 [
@@ -311,9 +323,11 @@ Returns an active event.
 
 ### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/events/2155"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/events/2155" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 {
@@ -355,9 +369,11 @@ Returns rank ordered active event types with associated wines, for use on events
 
 ### Response
 
+```shell
+curl "http://api.smwe.com/v1/CSM/event_types"
+     -H 'Authorization: Token token="12345"'
 ```
-curl "http://api.smwe.com/v1/CSM/event_types" -H 'Authorization: Token token="12345"'
-```
+> The above command returns JSON structured like this:
 
 ```json
 [
